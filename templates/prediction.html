@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+
+{% block title %}prediction{% endblock title %}
+
+{% block body %}
+
+
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-12">
+        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Machine Learning Project</h1>
+        <p class="lg:w-2/3 mx-auto leading-relaxed text-base"  style="color: red;"><b>Credit Card Fraud Detection System<b></p>
+          <br><b>
+            {% if output %}
+            <h2>{{output}}</h2>
+            {% endif %}
+            </b>
+        </div>
+
+      <form method="post" action="/prediction">
+      {% csrf_token %}
+    
+      
+       <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+       
+        <div class="relative flex-grow w-full">
+            <label for="v1" class="leading-7 text-sm text-gray-600">V1</label>
+            <input type="text" id="v1" name="v1" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div> 
+
+        <div class="relative flex-grow w-full">
+          <label for="v2" class="leading-7 text-sm text-gray-600">V2</label>
+          <input type="text" id="v2" name="v2" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative flex-grow w-full">
+            <label for="v3" class="leading-7 text-sm text-gray-600">V3</label>
+            <input type="text" id="v3" name="v3" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+          <div class="relative flex-grow w-full">
+            <label for="v4" class="leading-7 text-sm text-gray-600">V4</label>
+            <input type="text" id="v4" name="v4" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <br>
+       
+      </div>
+
+      <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+       
+        <div class="relative flex-grow w-full">
+            <label for="v5" class="leading-7 text-sm text-gray-600">V5</label>
+            <input type="text" id="v5" name="v5" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <div class="relative flex-grow w-full">
+          <label for="v6" class="leading-7 text-sm text-gray-600">V6</label>
+          <input type="text" id="v6" name="v6" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative flex-grow w-full">
+            <label for="v7" class="leading-7 text-sm text-gray-600">V7</label>
+            <input type="text" id="v7" name="v7" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+          <div class="relative flex-grow w-full">
+            <label for="v8" class="leading-7 text-sm text-gray-600">V8</label>
+            <input type="text" id="v8" name="v8" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <br>
+       
+      </div>
+
+      <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+       
+        <div class="relative flex-grow w-full">
+            <label for="v9" class="leading-7 text-sm text-gray-600">V9</label>
+            <input type="text" id="v9" name="v9" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <div class="relative flex-grow w-full">
+          <label for="v10" class="leading-7 text-sm text-gray-600">V10</label>
+          <input type="text" id="v10" name="v10" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative flex-grow w-full">
+            <label for="v11" class="leading-7 text-sm text-gray-600">V11</label>
+            <input type="text" id="v11" name="v11" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+          <div class="relative flex-grow w-full">
+            <label for="v12" class="leading-7 text-sm text-gray-600">12</label>
+            <input type="text" id="v12" name="v12" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <br>
+       
+      </div>
+
+      <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+       
+        <div class="relative flex-grow w-full">
+            <label for="v13" class="leading-7 text-sm text-gray-600">V13</label>
+            <input type="text" id="v13" name="v13" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <div class="relative flex-grow w-full">
+          <label for="v14" class="leading-7 text-sm text-gray-600">V14</label>
+          <input type="text" id="v14" name="v14" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative flex-grow w-full">
+            <label for="v15" class="leading-7 text-sm text-gray-600">V15</label>
+            <input type="text" id="v15" name="v15" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+          <div class="relative flex-grow w-full">
+            <label for="v16" class="leading-7 text-sm text-gray-600">V16</label>
+            <input type="text" id="v16" name="v16" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <br>
+       
+      </div>
+
+      <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+       
+        <div class="relative flex-grow w-full">
+            <label for="v17" class="leading-7 text-sm text-gray-600">V17</label>
+            <input type="text" id="v17" name="v17" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <div class="relative flex-grow w-full">
+          <label for="v18" class="leading-7 text-sm text-gray-600">V18</label>
+          <input type="text" id="v18" name="v18" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative flex-grow w-full">
+            <label for="v19" class="leading-7 text-sm text-gray-600">V19</label>
+            <input type="text" id="v19" name="v19" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+          <div class="relative flex-grow w-full">
+            <label for="v20" class="leading-7 text-sm text-gray-600">V20</label>
+            <input type="text" id="v20" name="v20" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <br>
+       
+      </div>
+
+      <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+       
+        <div class="relative flex-grow w-full">
+            <label for="v21" class="leading-7 text-sm text-gray-600">V21</label>
+            <input type="text" id="v21" name="v21" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <div class="relative flex-grow w-full">
+          <label for="v22" class="leading-7 text-sm text-gray-600">V22</label>
+          <input type="text" id="v22" name="v22" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative flex-grow w-full">
+            <label for="v23" class="leading-7 text-sm text-gray-600">V23</label>
+            <input type="text" id="v23" name="v23" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+          <div class="relative flex-grow w-full">
+            <label for="v24" class="leading-7 text-sm text-gray-600">V24</label>
+            <input type="text" id="v4" name="v24" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <br>
+       
+      </div>
+
+      <div class="flex lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+       
+        <div class="relative flex-grow w-full">
+            <label for="v25" class="leading-7 text-sm text-gray-600">V25</label>
+            <input type="text" id="v25" name="v25" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <div class="relative flex-grow w-full">
+          <label for="v26" class="leading-7 text-sm text-gray-600">V26</label>
+          <input type="text" id="v26" name="v26" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+        </div>
+
+        <div class="relative flex-grow w-full">
+            <label for="v27" class="leading-7 text-sm text-gray-600">V27</label>
+            <input type="text" id="v27" name="v27" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+          <div class="relative flex-grow w-full">
+            <label for="v28" class="leading-7 text-sm text-gray-600">V28</label>
+            <input type="text" id="v28" name="v28" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-red-500 focus:bg-transparent focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+          </div>
+
+        <br>
+       
+      </div>
+      
+      <br>
+      <div style="display: flex; justify-content: center;">
+        <button type="sumbit" class="text-white bg-red-500 border-0 py-2 px-9 focus:outline-none hover:bg-red-600 rounded text-lg">Predict</button>
+      </div>
+    </form>
+    </div>
+  </section>
+
+
+{% endblock body %}
